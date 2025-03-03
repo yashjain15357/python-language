@@ -1,0 +1,83 @@
+hiiiiiiiiiiiiiiiiiiiiiiiiiiiihiiiiiiiiiiiiiiiiiiiiiiiiiiii
+<!-- <script src="https://smartlock.google.com/client"></script> -->
+<script>
+//<![CDATA[
+window.gon={};
+//]]>
+</script>
+<script type="application/ld+json">
+
+</script>
+<link href="android-app://com.railyatri.in.mobile/http://m.rytr.in/live-train-status/12123" rel="alternate"/>
+<link href="ios-app://1052177547/http://m.rytr.in/live-train-status/12123" rel="alternate"/>
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/vietnamese/400/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Roboto;font-style:normal;font-weight:400;src:url(/cf-fonts/s/roboto/5.0.11/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}</style>
+<link href="https://images.railyatri.in/assets/mobile/mobile_views-e60898560ba22165a7ca5a3460cdcdca180101359d13aae6c72b983010a157f1.css.gz" media="all" rel="stylesheet">
+<script src="https://images.railyatri.in/assets/mobile/mobile_views-19e4ce068c4848d5e52ebe093152399c939aa718e37ab3e674463f4906404970.js.gz"></script>    
+<meta content="authenticity_token" name="csrf-param">
+<meta content="xqG/phoCV3uyQMwkXI9CkBuqZUGo8AEW+L0uqQt+zIMeFa2sBBeuVUsp6S0dcdSTtahNGAtRbam4YRHc2xi0Pw==" name="csrf-token">
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "https://www.railyatri.in/",
+      "logo": "https://images.railyatri.in/assets/logo_header-16cb48a876cd8f1697ffbf97575db24fa7dcb7c682374f7ce5a1d5ea827b51ee.png"
+    }
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "RailYatri",
+      "url": "https://www.railyatri.in/",
+      "sameAs": [
+        "https://www.facebook.com/railyatri",      
+        "https://twitter.com/railyatri",
+        "https://plus.google.com/+RailYatriIndia"  
+                  ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context":"http://schema.org",
+        "@type":"ItemList",
+        "itemListElement":[
+          {
+            "@type":"SiteNavigationElement",       
+            "position":1,
+            "name": "Live Train Status",
+            "url":"https://www.railyatri.in/m/live-train-status"
+          },
+          {
+            "@type":"SiteNavigationElement",       
+            "position":2,
+            "name": "Download App",
+            "url":"https://www.railyatri.in/app"   
+          },
+          {
+            "@type":"SiteNavigationElement",       
+            "position":3,
+            "name": "Train Between Stations",      
+            "url":"https://www.railyatri.in/m/trains-between-stations"
+          },
+          {
+            "@type":"SiteNavigationElement",       
+            "position":4,
+            "name": "Train Tickets",
+            "url":"https://www.railyatri.in/m/train-ticket"
+          },
+          {
+            "@type":"SiteNavigationElement",       
+            "position":5,
+            "name": "PNR Status",
+            "url":"https://www.railyatri.in/m/pnr-status"
+          },
+          {
+            "@type":"SiteNavigationElement",       
+            "position":6,
+            "name": "Bus Tickets",
+            "url":"https://www.railyatri.in/m/bus-booking"
+          }
+        ]
+      }
+  </script>hiiiiiiiiiiiiiiiiiiiiiiiiiiii
