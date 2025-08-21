@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+{% extends "basic.html" %}
+{% block content%}
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+
+    }
+    form{
+        width: 50vh;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    div {
+        background-color: black;
+        color: aqua;
+        border: 4px;
+        border-color:chartreuse;
+    }
+</style>
+<body>
+    
+    
+    <h1>LOGIN PAGE</h1>
+    <form action="/submit" method="POST">
+        <div>
+            <input type="text" name="username" , placeholder="username">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="password" id="pass">
+            <button type="button" onclick="togglePassword()">Show</button>
+        </div>
+        <input type="submit" value="Login">
+
+    </form>
+
+    <script>
+    function togglePassword() {
+        var passInput = document.getElementById("pass");
+        if (passInput.type === "password") {
+            passInput.type = "text";
+        } else {
+            passInput.type = "password";
+        }
+    }
+    </script>
+</body>
+{% endblock %}
+</html>

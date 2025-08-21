@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}My Feedback Site{%endblock%}</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        background-color: #f5f5f5;
+    }
+    header,footer{
+        background-color: #333;
+        padding: 10px;
+        color: aquamarine;
+    }
+    nav a{
+        margin: 0 10px;
+        color:  white;
+        text-decoration: none;
+    }
+    main{
+        background-color: aliceblue;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+</style>
+<body>
+    <header>    
+        <h1>Feedback Page</h1>
+        <nav>
+            <a href="/feedback">Feedback</a>
+            <a href="/about">about</a>
+            <a href="/thankyou">thankyou</a>
+        </nav>
+    </header>
+    <main>
+        {%block content%}
+        {%endblock%}
+    </main>
+    <footer>
+        <p>
+            @15357 yash jain
+        </p>
+    </footer>
+
+</body>
+</html>
