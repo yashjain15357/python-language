@@ -1,7 +1,7 @@
 from flask import Flask, render_template,redirect,request
 app = Flask(__name__)
 
-@app.route("/feedback", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def feedback():
     if request.method == "POST":
         username = request.form.get("username")
