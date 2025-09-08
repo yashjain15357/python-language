@@ -12,11 +12,12 @@
             <h1>My To-Do App</h1>
             <nav>
                 <a href="{{ url_for('task.view_task') }}">Home</a>
-                {% if 'user_id' in session %}
+                {% if 'user' in session %}
                 <a href="{{url_for('auth.logout')}}">Logout</a>
                 {% else %}
-                    <a href="{{url_for('auth.login')}}">Login</a>
+                <a href="{{url_for('auth.login')}}">Login</a>
                 {% endif %}
+                <a href="{{url_for('auth.register')}}">Register</a>
 
             </nav>
         </div>

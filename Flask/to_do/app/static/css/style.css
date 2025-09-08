@@ -13,7 +13,7 @@ body {
 /* Header */
 header {
     background: linear-gradient(to_right, #0062E6, #33AeFF);
-    color: white;
+    color: rgb(26, 25, 25);
     padding: 20px 0;
     box-shadow: 0 2px 8px black;
 }
@@ -31,7 +31,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: rgb(219, 16, 16);
     text-decoration: none;
     margin: 0 15px;
     font-size: color 0.3s ease;
@@ -186,14 +186,15 @@ footer p {
     font-weight: bold;
     color: white;
 }
-.badge.pending{
-    background-color: #ffc107;
+.badge.pending {
+    background-color: #ffc107; /* Yellow */
 }
-.badge.working{
-    background-color: #17a2b8;
+.badge.working {
+    background-color: #17a2b8; /* Blue */
 }
-.badge.pending{
-    background-color: #28a745;
+/* Change 'pending' to 'done' here */
+.badge.done {
+    background-color: #28a745; /* Green */
 }
 
 .btn-small{
