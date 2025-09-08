@@ -22,10 +22,12 @@
     <table class="task-table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>Task No.</th>
                 <th>Task</th>
                 <th>Status</th>
                 <th>Change</th>
+                <th>Delete</th>
+
             </tr>
         </thead>
         <tbody>
@@ -39,6 +41,13 @@
                 <td>
                     <form action="{{ url_for('task.toggle_status', task_id=task.id) }}" method="post">
                         <button class="btn-small" type="submit">Next</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ url_for('task.clear_tk', task_id=task.id) }}" >
+                        <button type="submit" class="btn btn-clear" title="Delete Task">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </form>
                 </td>
             </tr>
