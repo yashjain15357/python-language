@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Image {% endblock %}
+{% block content %}
+<div>
+    <h2>Uploaded Image Gallery</h2>
+    <div class="gallery">
+        {% for img in images %}
+            <div class="card">
+                <!-- Call the get_image route -->
+                <img src="{{ url_for('galary.get_image', image_id=img.id) }}" 
+                     alt="{{ img.name }}">
+
+                <form action="{{url_for('galary.view_image' , image_id=img.id)}}" class="name">
+                <button type="submit" class="name">{{ img.name }}</button>
+                </form>
+
+                <form action="{{url_for('galary.del_img' , image_id=img.id)}}">
+
+                    <button type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>   
+</div>
+{% endblock %}
