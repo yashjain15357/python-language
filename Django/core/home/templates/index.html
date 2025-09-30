@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2>hii my name is yash jain this is home page</h2>
+<a href="contact/">contact</a>
+|
+<a href="about/">about</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Person</th>
+            <th scope="col">Age</th>
+            <th scope="col">City</th>
+        </tr>
+
+    </thead>
+    {% for people in peoples %}
+    <tr>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td>{{people.city}}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis veritatis deserunt corrupti quidem eligendi non
+    recusandae dolor facere nemo. Ex accusantium debitis odit unde atque, porro veniam aliquid quae ea sequi
+    suscipit nulla id, earum temporibus. Excepturi quae omnis tenetur blanditiis voluptatum necessitatibus, vero
+    enim!</p>
+{% endblock %}
