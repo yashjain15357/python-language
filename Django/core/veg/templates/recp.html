@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+<title>{% block title %}Document{% endblock %}</title>
+{% block content %}
+<p>This is Receipes page</p>
+
+<div class="container mt-5">
+  <!-- You use enctype="multipart/form-data" in your <form> tag when your form includes file uploads (like images). -->
+  <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+      <input type="hidden" name="form_type" value="add_recipe">
+
+    <h1>ADD RECIPES</h1>
+    <div class="mb-3">
+      <label for="recp_name" class="form-label">Recipes Name</label>
+      <input type="text" class="form-control" id="recp_name" name="recp_name" aria-describedby="emailHelp" required>
+    </div>
+    <div class="mb-3">
+      <label for="recp_decp" class="form-label">Recipe Discription</label>
+      <textarea class="form-control" name="recp_decp" id="recp_decp" required></textarea>
+    </div>
+    <div class="mb-3 form-image">
+      <label class="form-check-label" for="exampleCheck1">Recipes Image</label>
+      <input type="file" class="form-control" id="recp_img" name="recp_img">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+{% endif %}
+<h2>Receipes</h2>
+<form class="d-flex container mt-3 " role="search"  method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="form_type" value="search">
+  <input class="form-control me-2" type="search" placeholder="Enter the recipe name" aria-label="Search" name="search_query"/>
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form >
+  <table class="table table-bordered container mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">Receipes Name</th>
+      <th scope="col">Receipes Decription</th>
+      <th scope="col">Receipes Image</th>
+      <th scope="col">Clear</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    {% for data in datas %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{ data.recp_name }}</td>
+      <td>{{ data.recp_decp }}</td>
+      <td>
+        {% if data.recp_img %}
+        <img src="{{ data.recp_img.url }}" class="card-img-top img-fluid" style="height: 200px; width: 200px;"
+          alt="image not available">
+        {% else %}
+        <div class="card-img-top text-center py-5">No image available</div>
+        {% endif %}
+      </td>
+      <td class="d-grid gap-2">
+        <a href="{% url 'delete_recp' data.id %}" class="btn btn-danger btn-sm">Delete</a>
+        <a href="{% url 'update_recp' data.id %}" class="btn btn-danger btn-sm">Update</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}

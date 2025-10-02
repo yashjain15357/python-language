@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<title>Update_recp</title>
+{% block content %}
+
+<div class="container mt-5">
+    <!-- You use enctype="multipart/form-data" in your <form> tag when your form includes file uploads (like images). -->
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>ADD RECIPES</h1>
+        <div class="mb-3">
+            <label for="recp_name" class="form-label">Recipes Name</label>
+            <input type="text" class="form-control" id="recp_name" name="recp_name" aria-describedby="emailHelp" required value={{data.recp_name}}>
+        </div>
+        <div class="mb-3">
+            <label for="recp_decp" class="form-label">Recipe Discription</label>
+            <textarea class="form-control" name="recp_decp" id="recp_decp" required >{{data.recp_decp}}</textarea>
+        </div>
+        <div class="mb-3 form-image">
+            <label class="form-check-label" for="exampleCheck1">Recipes Image</label>
+            <input type="file" class="form-control" id="recp_img" name="recp_img">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    
+</div>
+
+{% endblock %}
