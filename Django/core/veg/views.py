@@ -51,3 +51,11 @@ def update_recp(request , id):
         change.save()
         return redirect(to="/recipes")
     return render(request ,"update.html" ,context={'data' :change })
+
+def login(request):
+    
+    return render(request , 'login.html')
+def register(request):
+
+    return render(request ,'register.html')
+

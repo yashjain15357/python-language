@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from home.views import *
 from veg.views import *
+# from account.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,9 +28,11 @@ urlpatterns = [
     path('about/',about,name="about" ),
     path('contact/',contact,name="contact" ),
     path('recipes/',recp,name="recipes"),
-    path('delete_recp<int:id>/',delete_recp,name="delete_recp"),
-    path('update_recp<int:id>/',update_recp,name="update_recp"),
-    
+    path('delete_recp/<int:id>/',delete_recp,name="delete_recp"),
+    path('update_recp/<int:id>/',update_recp,name="update_recp"),
+      
+    path('login/',login ,name="login"),
+    path('register/', register ,name='register' ),
     # path("success/",success_full,name="success_full"),
 
     path('admin/', admin.site.urls),
