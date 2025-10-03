@@ -26,11 +26,7 @@
   </form>
 
 </div>
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-success">{{ message }}</div>
-{% endfor %}
-{% endif %}
+
 <h2>Receipes</h2>
 <form class="d-flex container mt-3 " role="search"  method="POST">
   {% csrf_token %}

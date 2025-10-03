@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from veg.models import *
 from django.contrib import messages  # Add this import
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login, logout
 # Create your views here.
 def recp(request):
     if request.method == "POST":
@@ -11,7 +12,7 @@ def recp(request):
             recp_name = data.get("recp_name")
             recp_decp = data.get("recp_decp")
             recp_img = request.FILES.get("recp_img")
-            print(f"The recipe name is {recp_name} and descriptions is {recp_decp} and image name is {recp_img}")
+            # print(f"The recipe name is {recp_name} and descriptions is {recp_decp} and image name is {recp_img}")
             Recp.objects.create(
                 recp_name=recp_name, 
                 recp_decp=recp_decp, 
@@ -52,10 +53,45 @@ def update_recp(request , id):
         return redirect(to="/recipes")
     return render(request ,"update.html" ,context={'data' :change })
 
+
 def login(request):
-    
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        user = User.objects.get(email=email)
+        
+        if user and user.check_password(password):
+            
+            messages.success(request, f"Welcome back, {email}!")
+            return redirect(to='/recipes')
+        else:
+            messages.error(request, "Invalid username or password.")
+            return redirect('/login')
+
     return render(request , 'login.html')
+
+
 def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not all([username, email, password]):
+            messages.error(request, "All fields are required.")
+            return redirect('/register')
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, f"Username '{username}' is already taken.")
+            return redirect('/register')
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, f"An account with email '{email}' already exists.")
+            return redirect('/register')
+
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.save()
+        messages.success(request, "Registration successful! Please log in.")
+        return redirect('/login' )
 
     return render(request ,'register.html')
-

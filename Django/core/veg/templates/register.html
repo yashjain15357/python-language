@@ -28,6 +28,7 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form method="post">
+                    {% csrf_token %}
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3">Sign up with</p>
                         <button type="button" data-mdb-button-init data-mdb-ripple-init
@@ -52,20 +53,20 @@
 
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
-                            placeholder="Enter Your Name" name="first_name"/>
+                        <input type="text"  class="form-control form-control-lg"
+                            placeholder="Enter Your Name" name="username"/>
                         <label class="form-label" for="form3Example3">Name</label>
                     </div>
                 
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
+                        <input type="email"  class="form-control form-control-lg"
                             placeholder="Enter a valid email address" name="email"/>
                         <label class="form-label" for="form3Example3">Email address</label>
                     </div>
 
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-3">
-                        <input type="password" id="form3Example4" class="form-control form-control-lg"
+                        <input type="password"  class="form-control form-control-lg"
                             placeholder="Enter password" name="password"/>
                         <label class="form-label" for="form3Example4">Password</label>
                     </div>
@@ -82,7 +83,7 @@
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <a href="/login"><button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+                        <a href="/login"><button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
                             style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button></a>
                         <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login"
                                 class="link-danger">Login</a></p>
