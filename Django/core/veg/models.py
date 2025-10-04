@@ -6,9 +6,16 @@ from django.contrib.auth.models import User
 class Recp(models.Model):
     user = models.ForeignKey(User , on_delete=models.SET_NULL,null=True, blank= True)  #When the referenced object (e.g., a User) is deleted, all related objects (e.g., Recp recipes) are also deleted automatically.
 
-    recp_name = models.CharField(100 , null=False)
+    recp_name = models.CharField(max_length=100 , null=False)
     recp_decp= models.TextField()
     recp_img = models.ImageField(upload_to="recp")
+
+# view = Post.objects.all().order_by("views")  //ascending
+# view = Post.objects.all().order_by("-views") //decending
+
+# posts = Post.objects.filter(views__gte=100).order_by("-views")
+
+
 
 # models.CASCADE
 # Deletes related objects when the referenced object is deleted.

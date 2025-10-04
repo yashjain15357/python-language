@@ -35,6 +35,7 @@ def recp(request):
             query = request.POST.get("search_query")
             # `Recp.objects.filter()` retrieves objects from the database that match the given criteria.
             # `recp_name__icontains` is a field lookup that performs a case-insensitive "contains" search.
+            # `recp_name__icontains` is a powerful field lookup (operator) that performs a case-insensitive "contains" search.
             all_data = Recp.objects.filter(recp_name__icontains=query)
             # `render()` combines a template with a context dictionary and returns an HttpResponse object.
             return render(request, "recp.html", context={'datas': all_data})
