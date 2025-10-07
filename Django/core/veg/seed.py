@@ -3,7 +3,7 @@ from veg.models import *
 import random
 faker = Faker()
 
-def seed_db(n=10)->None :
+def seed_db()->None :
     for i in range(0,200):
         student_email =  faker.email()
         student_age= random.randint(18 , 30)
@@ -26,4 +26,21 @@ def seed_db(n=10)->None :
             student_name = student_name,
             department = department,
             student_id = student_id_obj
+        )
+
+def user():
+    for _ in range(0,100):
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        username = faker.user_name()
+        password = faker.password()
+
+        # Use create_user() to properly create a user and hash the password.
+        User.objects.create_user(
+            username=username,
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name
         )
