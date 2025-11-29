@@ -44,3 +44,18 @@ def user():
             first_name=first_name,
             last_name=last_name
         )
+def sub_M():
+    try:
+        student_obj = Student.objects.all()
+        for student in student_obj:
+            sub_obj = Subject.objects.all()
+            for sub in sub_obj:
+                Subject_M.objects.create(
+                    student = student,
+                    subject = sub,
+                    marks = random.randint(0 , 100)
+                )
+
+    except Exception as e:
+        print(e)
+

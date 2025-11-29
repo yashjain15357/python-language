@@ -80,6 +80,8 @@ class Member(models.Model):
 
 class Subject (models.Model):
    subject  = models.CharField(max_length=100)
+   def __str__(self):
+      return self.subject
 
 class Subject_M(models.Model):
    student = models.ForeignKey(Student, related_name="studentmarks", on_delete= models.CASCADE)
@@ -90,6 +92,7 @@ class Subject_M(models.Model):
       return f'{self.student.student_name} {self.subject.subject}'
 
    class Meta:
+      ordering = ['student']
       unique_together = [['student', 'subject']]
 
 

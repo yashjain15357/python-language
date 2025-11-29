@@ -135,3 +135,8 @@ def register(request):
         return redirect('/login' )
 
     return render(request ,'register.html')
+
+
+def get_student(request):
+    qureyset = Student.objects.all()
+    return render(request , 'report/student.html' , {'queryset' : qureyset})
