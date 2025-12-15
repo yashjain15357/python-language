@@ -18,7 +18,7 @@ class Recp(models.Model):
 
 
 # models.CASCADE
-# Deletes related objects when the referenced object is deleted.
+# Deletes related objects(row) when the referenced object is deleted.
 
 # models.PROTECT
 # Prevents deletion of the referenced object if related objects exist (raises ProtectedError).
@@ -85,6 +85,7 @@ class Subject (models.Model):
 
 class Subject_M(models.Model):
    student = models.ForeignKey(Student, related_name="studentmarks", on_delete= models.CASCADE)
+   # student_id = models.ForeignKey(StudentID,related_name='student_id', on_delete=models.CASCADE )
    subject = models.ForeignKey(Subject , on_delete=models.CASCADE)
    marks = models.IntegerField() 
     
@@ -96,8 +97,10 @@ class Subject_M(models.Model):
       unique_together = [['student', 'subject']]
 
 
-
-
+class Rank(models.Model):
+   student = models.ForeignKey(Student , related_name='student_rank',on_delete=models.CASCADE)
+   rank_no = models.IntegerField()
+   date_of_report = models.DateField(auto_now_add=True)
 
 
 

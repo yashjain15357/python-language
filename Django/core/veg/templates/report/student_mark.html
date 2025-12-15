@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <header class="mb-4">
+        <h1 class="text-center">Academic Marksheet</h1>
+    </header>
+
+    <!-- Student Details Section (using Bootstrap grid) -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <!-- Since all marks belong to the same student, we can get the student from the first item in the list. -->
+            <p><strong>Student Name:</strong> {{ data.first.student.student_name }}</p>
+            <p><strong>Class/Grade:</strong> BTech</p>
+        </div>
+        <div class="col-md-6">
+            <!-- Access the student_id and department through the related student object -->
+            <p><strong>Roll Number:</strong> {{ data.first.student.student_id }}</p>
+            <p><strong>Department:</strong> {{ data.first.student.department }}</p>
+        </div>
+    </div>
+
+    <!-- Marksheet Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Subject</th>
+                    <th>Max Marks</th>
+                    <th>Marks Obtained</th>
+                    <th>Grade</th>
+                    <th>Remarks</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                
+                {% for i in data %}
+                
+                <tr>
+                    <!-- Explicitly access the 'subject' field on the related subject object -->
+                    <td>{{ i.subject.subject }}</td>
+                    <td>100</td>
+                    <td>{{ i.marks }}</td>
+                    {% comment %}
+                        This is a more robust way to handle grading.
+                        Each 'elif' is only checked if the one before it was false.
+                    {% endcomment %}
+                    {% if i.marks > 90 %}
+                        <td>A+</td>
+                        <td>Excellent</td>
+                    {% elif i.marks > 75 %}
+                        <td>A</td>
+                        <td>Good</td>
+                    {% elif i.marks > 50 %}
+                        <td>B</td>
+                        <td>Average</td>
+                    {% else %}
+                        <td>F</td>
+                        <td>Fail</td>
+                    {% endif %}
+                </tr>
+                {%endfor%}
+                <!-- Add more rows for other subjects -->
+            </tbody>
+            <tfoot>
+                <tr class="table-info">
+                    <td colspan="2"><strong>Total Marks:</strong></td>
+                    
+                    
+                    <td><strong>{{total}}/500</strong></td>
+                    
+                    <td colspan="2"></td>
+                </tr>
+                <tr class="table-success">
+                    <td colspan="3"><strong>Overall Result:</strong></td>
+                    <td colspan="2"><strong>{{result}}</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<!-- Link to Bootstrap JS (optional, for some components) -->
+<script src="cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+{% endblock %}

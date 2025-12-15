@@ -136,7 +136,30 @@ def register(request):
 
     return render(request ,'register.html')
 
+from django.db.models import Q
 
 def get_student(request):
-    qureyset = Student.objects.all()
-    return render(request , 'report/student.html' , {'queryset' : qureyset})
+    queryset = Student.objects.all()
+    if request.GET.get("search"):
+        search = request.GET.get("search")
+        # Use Q objects to create a more complex query.
+        # This searches for the 'search' term in either the student_name OR the department.
+        # Note: This assumes your Student model has a 'department' field.
+        queryset = queryset.filter(
+            # The double underscore (__) tells Django: "Look inside the model that the first department field points to."
+
+            Q(student_name__icontains=search) | Q(department__department__icontains=search)| Q(student_id__student_id__icontains=search) | Q(student_age__icontains=search))
+    return render(request , 'report/student.html' , {'queryset' : queryset})
+
+def get_report(request , student_id):
+    # Since student_id is the primary key of the Student model, we can query it directly.
+    # This gets all marks for the student with the given student_id.
+    # .select_related('student', 'subject') optimizes the query by fetching related objects in a single database hit.
+    student_marks = Subject_M.objects.filter(student__student_id=student_id).select_related('student', 'subject')
+    total_marks = sum(i.marks for i in student_marks)
+    result = "Pass"
+    for i in student_marks:
+        if i.marks<40:
+            result = "Fail"
+
+    return render(request ,"report/student_mark.html",{'data' : student_marks , 'total' : total_marks , 'result' :result})

@@ -37,7 +37,10 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('logout/', logout_page , name= 'logout'),
-    path('student_report/', get_student , name= 'student')
+    # A unique name for the view that lists all students.
+    path('report/student/', get_student , name= 'student_list'),
+    # A unique name and corrected path for viewing a specific student's marks.
+    path('report/student/<str:student_id>/', get_report , name= 'student_report')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

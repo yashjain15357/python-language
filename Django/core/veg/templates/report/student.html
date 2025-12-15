@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container mt-5">
+    <form class="mb-4" method="GET">
+    <div class="row" >
+        <div class="col-md-6">
+            <input type="text" placeholder="search" class="form-control" name="search">
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-outline-success">Search</button>
+        </div>
+        </div>
+    </form>
+
 <table class="table table-bordered table-dark">
     <!-- <h2>{{queryset.student_name}}</h2>
     <h2>{{queryset.department.department}}</h2> -->
@@ -11,7 +23,7 @@
             <th scope="col">Department</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
-            
+
         </tr>
     </thead>
     <tbody>
@@ -23,10 +35,10 @@
             <td>{{query.department}}</td>
             <td>{{query.student_email}}</td>
             <td>{{query.student_address}}</td>
-            
+
         </tr>
         {% endfor %}
-        
+
     </tbody>
-</table>
+</table></div>
 {% endblock %}
