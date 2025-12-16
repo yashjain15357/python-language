@@ -1,6 +1,7 @@
 from faker import Faker
 from veg.models import *
 import random
+from django.db.models import Q, Sum
 faker = Faker()
 
 def seed_db()->None :
@@ -59,3 +60,13 @@ def sub_M():
     except Exception as e:
         print(e)
 
+def std_rank():
+    ranks = Student.objects.annotate(marks=Sum("studentmarks__marks")).order_by("-marks")
+    count = 1
+    for rank in ranks:
+        
+        Rank.objects.create(
+            student = rank,
+            rank_no = count
+        )
+        count +=1

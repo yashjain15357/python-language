@@ -99,8 +99,13 @@ class Subject_M(models.Model):
 
 class Rank(models.Model):
    student = models.ForeignKey(Student , related_name='student_rank',on_delete=models.CASCADE)
-   rank_no = models.IntegerField()
-   date_of_report = models.DateField(auto_now_add=True)
+   rank_no = models.IntegerField(null=False)
+   total_marks = models.IntegerField(null=True)
+   # date_of_report = models.DateField(auto_now_add=True)
+
+
+   def __str__(self):
+      return f"{self.rank_no} - {self.student.student_name}"
 
 
 

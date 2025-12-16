@@ -136,10 +136,16 @@ def register(request):
 
     return render(request ,'register.html')
 
-from django.db.models import Q
+from django.db.models import Q, Sum
 
 def get_student(request):
     queryset = Student.objects.all()
+
+    ranks = Student.objects.annotate(marks=Sum("studentmarks__marks")).order_by("-marks")
+    for rank in ranks:
+        print(rank.marks, rank.student_id)
+
+
     if request.GET.get("search"):
         search = request.GET.get("search")
         # Use Q objects to create a more complex query.
@@ -159,7 +165,18 @@ def get_report(request , student_id):
     total_marks = sum(i.marks for i in student_marks)
     result = "Pass"
     for i in student_marks:
-        if i.marks<40:
+        if i.marks< 35 :
             result = "Fail"
 
-    return render(request ,"report/student_mark.html",{'data' : student_marks , 'total' : total_marks , 'result' :result})
+    # show rank in the report card page
+    ranks = Student.objects.annotate(marks=Sum("studentmarks__marks")).order_by("-marks")
+    count = 1
+    for rank in ranks:
+        # print(type(student_id) , type(rank.student_id))
+        if student_id == str(rank.student_id):
+            break
+        count=count+1
+    
+
+
+    return render(request ,"report/student_mark.html",{'data' : student_marks , 'total' : total_marks , 'result' :result ,"rank":count})

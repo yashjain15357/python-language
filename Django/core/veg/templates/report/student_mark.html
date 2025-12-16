@@ -52,8 +52,14 @@
                     {% elif i.marks > 75 %}
                         <td>A</td>
                         <td>Good</td>
-                    {% elif i.marks > 50 %}
+                    {% elif i.marks > 60 %}
+                        <td>B+</td>
+                        <td>Average</td>
+                    {% elif i.marks > 45 %}
                         <td>B</td>
+                        <td>Average</td>
+                    {% elif i.marks > 35 %}
+                        <td>C</td>
                         <td>Average</td>
                     {% else %}
                         <td>F</td>
@@ -71,6 +77,10 @@
                     <td><strong>{{total}}/500</strong></td>
                     
                     <td colspan="2"></td>
+                </tr>
+                <tr class="table-success">
+                    <td colspan="3"><strong>Rank:</strong></td>
+                    <td colspan="2"><strong>{{rank}}</strong></td>
                 </tr>
                 <tr class="table-success">
                     <td colspan="3"><strong>Overall Result:</strong></td>

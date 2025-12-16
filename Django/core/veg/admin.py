@@ -1,5 +1,5 @@
 from django.contrib import admin 
-from .models import Member, Recp, Department, StudentID, Student,Subject_M,Subject
+from .models import Member, Recp, Department, StudentID, Student,Subject_M,Subject,Rank
 
 # Register your models here.
 admin.site.register(Member)
@@ -11,3 +11,6 @@ class Subject_MAdmin(admin.ModelAdmin):
     list_display = ['student' , 'subject' , 'marks' ]
 admin.site.register(Subject_M ,Subject_MAdmin)
 admin.site.register(Subject)
+class Rank_gen(admin.ModelAdmin):
+    list_display = ["student" , "rank_no"]
+admin.site.register(Rank , Rank_gen)
