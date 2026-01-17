@@ -1,3 +1,7 @@
+# put data in the data base by run the function of the code
+
+
+
 from faker import Faker
 from veg.models import *
 import random
